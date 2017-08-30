@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 const quotesController = require('./controllers/quotes.js');
 app.use('/quotes', quotesController);
