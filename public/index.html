@@ -8,6 +8,10 @@
     <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
   <body ng-controller="MainController as ctrl">
-    {{ctrl.foo}}
+    <form ng-submit="ctrl.createQuote()">
+      <input type="text" ng-model="ctrl.quote" placeholder="quote"/>
+      <input type="text" ng-model="ctrl.character" placeholder="character"/>
+      <input type="submit" value="Submit">
+    </form>
   </body>
 </html>
