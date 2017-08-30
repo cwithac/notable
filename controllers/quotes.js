@@ -14,4 +14,10 @@ router.post('/', (req, res) => {
   });
 });
 
+router.delete('/:id', (req, res) => {
+  Quotes.findByIdAndRemove(req.params.id, (err, deletedQuote) => {
+    res.json(deletedQuote);
+  });
+});
+
 module.exports = router;
