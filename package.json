@@ -1,0 +1,22 @@
+{
+  "name": "quotable",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwithac/quotable.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cwithac/quotable/issues"
+  },
+  "homepage": "https://github.com/cwithac/quotable#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
