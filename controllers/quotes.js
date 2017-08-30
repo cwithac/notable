@@ -3,7 +3,9 @@ const router = express.Router();
 const Quotes = require('../models/quotes.js');
 
 router.get('/', (req, res) => {
-  res.send('index');
+  Quotes.find({}, (err, foundQuotes) => {
+    res.json(foundQuotes);
+  });
 });
 
 router.post('/', (req, res) => {
