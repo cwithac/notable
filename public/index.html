@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html ng-app="QuotesApp">
+<html ng-app="NotesApp">
   <head>
     <meta charset="utf-8">
-    <title>Quotable</title>
+    <title>Notable</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
     <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
   <body ng-controller="MainController as ctrl">
-    <form ng-submit="ctrl.createQuote()">
-      <input type="text" ng-model="ctrl.quote" placeholder="quote"/>
-      <input type="text" ng-model="ctrl.character" placeholder="character"/>
+    <form ng-submit="ctrl.createNote()">
+      <input type="text" ng-model="ctrl.note" placeholder="note"/>
       <input type="submit" value="Submit">
     </form>
 
     <ul>
-      <li ng-repeat="quote in ctrl.quotes">{{quote.quote}} - {{quote.character}}</li>
+      <li ng-repeat="note in ctrl.notes">{{note.note}}</li>
     </ul>
 
   </body>

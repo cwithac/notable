@@ -1,19 +1,19 @@
-const express = require('express');
-const app = express();
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+const express     = require('express');
+const app         = express();
+const mongoose    = require('mongoose');
+const bodyParser  = require('body-parser');
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-const quotesController = require('./controllers/quotes.js');
-app.use('/quotes', quotesController);
+const notesController = require('./controllers/notes.js');
+app.use('/notes', notesController);
 
 app.listen(3000, () => {
-  console.log('quotable app is listening');
+  console.log('notable app is listening');
 });
 
-mongoose.connect('mongodb://localhost:27017/quote');
+mongoose.connect('mongodb://localhost:27017/note');
 mongoose.connection.once('open', () => {
-  console.log('quotable app is connected to mongo');
+  console.log('notable app is connected to mongo');
 })

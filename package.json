@@ -1,5 +1,5 @@
 {
-  "name": "quotable",
+  "name": "notable",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cwithac/quotable.git"
+    "url": "git+https://github.com/cwithac/notable.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cwithac/quotable/issues"
+    "url": "https://github.com/cwithac/notable/issues"
   },
-  "homepage": "https://github.com/cwithac/quotable#readme",
+  "homepage": "https://github.com/cwithac/notable#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.4",

@@ -1,37 +1,37 @@
-const app = angular.module('QuotesApp', []);
+const app = angular.module('NotesApp', []);
 
 app.controller('MainController', ['$http', function($http){
 
   const controller = this;
 
-  this.getQuotes = function() {
+  this.getNotes = function() {
     $http({
       method: 'GET',
-      url: '/quotes',
+      url: '/notes',
     }).then(function(response){
       console.log(response);
-      controller.quotes = response.data;
+      controller.notes = response.data;
     }, function() {
       console.log('error');
     });
   };
 
-  this.createQuote = function() {
+  this.createNote = function() {
     $http({
       method: 'POST',
-      url: '/quotes',
+      url: '/notes',
       data: {
-        quote: this.quote,
+        note: this.note,
         character: this.character
       }
     }).then(function(response){
       console.log(response);
-      controller.getQuotes();
+      controller.getNotes();
     }, function() {
       console.log('error');
     });
   };
 
-this.getQuotes(); //page load
+this.getNotes(); //page load
 
 }]); //end of MainController
