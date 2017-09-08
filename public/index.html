@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <title>Notable</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
+    <script src="https://use.fontawesome.com/bf46144db9.js"></script>
     <script src="js/app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/style.css">
     <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
 
@@ -20,7 +22,7 @@
       <li ng-repeat="note in ctrl.notes">
         {{note.content}}
 <!-- DELETE START-->
-        <div ng-click="ctrl.deleteNote(note)">Delete</div>
+        <div ng-click="ctrl.deleteNote(note)"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
 <!-- DELETE END-->
 <!-- UPDATE START-->
         <div ng-click="ctrl.editIndexToggle = $index;  ctrl.showEditFieldForm()">Edit</div>
