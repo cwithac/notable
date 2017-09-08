@@ -3,6 +3,10 @@ const app = angular.module('NotesApp', []);
 app.controller('MainController', ['$http', function($http){
 
   const controller = this;
+  this.formData = {};
+  this.notes = [];
+  this.editIndexToggle = 1;
+  this.showEdit = false;
 
   this.getNotes = function() {
     $http({
@@ -21,10 +25,12 @@ app.controller('MainController', ['$http', function($http){
       method: 'POST',
       url: '/notes',
       data: {
-        content: this.note
+        content: this.formData.note
       }
     }).then(function(response){
       // console.log('created', response);
+      console.log(controller.formData.note);
+      controller.formData = {};
       controller.getNotes();
     }, function() {
       console.log('error');

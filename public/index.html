@@ -9,15 +9,16 @@
   </head>
   <body ng-controller="MainController as ctrl">
     <form ng-submit="ctrl.createNote()">
-      <input type="text" ng-model="ctrl.note" placeholder="note"/>
-      <input type="submit" value="Submit">
+      <input type="text" ng-model="ctrl.formData.note" placeholder="note"/>
+      <input type="submit" value="add">
     </form>
 
     <ul>
       <li ng-repeat="note in ctrl.notes">
         {{note.content}}
         <div ng-click="ctrl.deleteNote(note)">Delete</div>
-        <form ng-submit="ctrl.updateNote(note)">
+        <div ng-click="ctrl.editIndexToggle = $index">Edit</div>
+        <form ng-if="$index === ctrl.editIndexToggle" ng-submit="ctrl.updateNote(note)">
             <input type="text" ng-model="ctrl.updatedContent" placeholder="content" />
             <input type="submit" value="update">
         </form>
