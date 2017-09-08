@@ -25,7 +25,7 @@
         <div ng-click="ctrl.deleteNote(note)"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
 <!-- DELETE END-->
 <!-- UPDATE START-->
-        <div ng-click="ctrl.editIndexToggle = $index;  ctrl.showEditFieldForm()">Edit</div>
+        <div ng-click="ctrl.editIndexToggle = $index;  ctrl.showEditFieldForm()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
         <form ng-if="$index === ctrl.editIndexToggle && ctrl.showEditField" ng-submit="ctrl.updateNote(note)">
             <input type="text" ng-model="ctrl.updatedContent" placeholder="content" />
             <input type="submit" value="update">
