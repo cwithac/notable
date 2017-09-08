@@ -9,10 +9,10 @@ app.controller('MainController', ['$http', function($http){
       method: 'GET',
       url: '/notes',
     }).then(function(response){
-      console.log(response);
+      // console.log('response.data', response.data);
       controller.notes = response.data;
-    }, function() {
-      console.log('error');
+    }, function(error) {
+      console.log('error', error);
     });
   };
 
@@ -21,15 +21,32 @@ app.controller('MainController', ['$http', function($http){
       method: 'POST',
       url: '/notes',
       data: {
-        note: this.note,
-        character: this.character
+        content: this.note
       }
     }).then(function(response){
-      console.log(response);
+      // console.log('created', response);
       controller.getNotes();
     }, function() {
       console.log('error');
     });
+  };
+
+  this.updateNote = function(note) {
+    $http({
+      method: 'PUT',
+      url: '/notes/' + note._id,
+      data: {
+        content: this.updatedContent
+      }
+    }).then(
+      function(response){
+        // console.log('updated', controller.updatedContent);
+        controller.getNotes();
+      },
+      function(error) {
+        console.log(error);
+      }
+    )
   };
 
 this.getNotes(); //page load
