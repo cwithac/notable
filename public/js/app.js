@@ -5,7 +5,6 @@ app.controller('MainController', ['$http', function($http){
   const controller = this;
   this.formData = {};
   this.notes = [];
-  // this.editIndexToggle = 0;
   this.showEditField = false;
 
   this.getNotes = function() {
@@ -44,10 +43,8 @@ app.controller('MainController', ['$http', function($http){
       }
     }).then(
       function(response){
-        // console.log('updated', controller.updatedContent);
         console.log(controller.updatedContent);
         controller.showEditField = false;
-        // controller.updatedContent = {};
         controller.getNotes();
       },
       function(error) {
