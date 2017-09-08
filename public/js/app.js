@@ -1,12 +1,15 @@
 const app = angular.module('NotesApp', []);
 
 app.controller('MainController', ['$http', function($http){
-
+  
+//Variable Assignment
   const controller = this;
   this.formData = {};
   this.notes = [];
   this.showEditField = false;
 
+
+//READ
   this.getNotes = function() {
     $http({
       method: 'GET',
@@ -19,6 +22,7 @@ app.controller('MainController', ['$http', function($http){
     });
   };
 
+//CREATE
   this.createNote = function() {
     $http({
       method: 'POST',
@@ -34,6 +38,7 @@ app.controller('MainController', ['$http', function($http){
     });
   };
 
+//UPDATE
   this.updateNote = function(note) {
     $http({
       method: 'PUT',
@@ -53,6 +58,7 @@ app.controller('MainController', ['$http', function($http){
     )
   };
 
+//DELETE
   this.deleteNote = function(note) {
     $http({
       method: 'DELETE',
@@ -67,10 +73,12 @@ app.controller('MainController', ['$http', function($http){
     )
   };
 
-  this.showEditFieldForm = function() {
+//Angular Functionality
+this.showEditFieldForm = function() {
     this.showEditField = true;
   }
 
-this.getNotes(); //page load
+//Page Load Calls
+this.getNotes();
 
 }]); //end of MainController

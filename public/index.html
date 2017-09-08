@@ -7,23 +7,30 @@
     <script src="js/app.js" charset="utf-8"></script>
     <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
+
   <body ng-controller="MainController as ctrl">
+<!-- CREATE START-->
     <form ng-submit="ctrl.createNote()">
       <input type="text" ng-model="ctrl.formData.note" placeholder="note"/>
       <input type="submit" value="add">
     </form>
-
+<!-- CREATE END-->
+<!-- READ START-->
     <ul>
       <li ng-repeat="note in ctrl.notes">
         {{note.content}}
+<!-- DELETE START-->
         <div ng-click="ctrl.deleteNote(note)">Delete</div>
+<!-- DELETE END-->
+<!-- UPDATE START-->
         <div ng-click="ctrl.editIndexToggle = $index;  ctrl.showEditFieldForm()">Edit</div>
         <form ng-if="$index === ctrl.editIndexToggle && ctrl.showEditField" ng-submit="ctrl.updateNote(note)">
             <input type="text" ng-model="ctrl.updatedContent" placeholder="content" />
             <input type="submit" value="update">
         </form>
+<!-- UPDATE END-->
       </li>
     </ul>
-
+<!-- READ END-->
   </body>
 </html>
