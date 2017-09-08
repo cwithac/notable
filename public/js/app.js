@@ -49,6 +49,20 @@ app.controller('MainController', ['$http', function($http){
     )
   };
 
+  this.deleteNote = function(note) {
+    $http({
+      method: 'DELETE',
+      url: '/notes/' + note._id
+    }).then(
+      function(response) {
+        controller.getNotes();
+      },
+      function(error) {
+        console.log(error);
+      }
+    )
+  };
+
 this.getNotes(); //page load
 
 }]); //end of MainController
