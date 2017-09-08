@@ -5,8 +5,8 @@ app.controller('MainController', ['$http', function($http){
   const controller = this;
   this.formData = {};
   this.notes = [];
-  this.editIndexToggle = 1;
-  this.showEdit = false;
+  // this.editIndexToggle = 0;
+  this.showEditField = false;
 
   this.getNotes = function() {
     $http({
@@ -28,8 +28,6 @@ app.controller('MainController', ['$http', function($http){
         content: this.formData.note
       }
     }).then(function(response){
-      // console.log('created', response);
-      console.log(controller.formData.note);
       controller.formData = {};
       controller.getNotes();
     }, function() {
@@ -47,6 +45,9 @@ app.controller('MainController', ['$http', function($http){
     }).then(
       function(response){
         // console.log('updated', controller.updatedContent);
+        console.log(controller.updatedContent);
+        controller.showEditField = false;
+        // controller.updatedContent = {};
         controller.getNotes();
       },
       function(error) {
@@ -68,6 +69,10 @@ app.controller('MainController', ['$http', function($http){
       }
     )
   };
+
+  this.showEditFieldForm = function() {
+    this.showEditField = true;
+  }
 
 this.getNotes(); //page load
 
