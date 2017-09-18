@@ -33,8 +33,8 @@ app.controller('MainController', ['$http', function($http){
     }).then(function(response){
       controller.formData = {};
       controller.getNotes();
-    }, function() {
-      console.log('error');
+    }, function(error) {
+      console.log('error', error);
     });
   };
 
@@ -52,7 +52,7 @@ app.controller('MainController', ['$http', function($http){
         controller.getNotes();
       },
       function(error) {
-        console.log(error);
+        console.log('error', error);
       }
     )
   };
