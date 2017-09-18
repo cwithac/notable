@@ -1,7 +1,7 @@
 const app = angular.module('NotesApp', []);
 
 app.controller('MainController', ['$http', function($http){
-  
+
 //Variable Assignment
   const controller = this;
   this.formData = {};
