@@ -44,11 +44,10 @@ app.controller('MainController', ['$http', function($http){
       method: 'PUT',
       url: '/notes/' + note._id,
       data: {
-        content: this.updatedContent
+        content: note.content
       }
     }).then(
       function(response){
-        console.log(controller.updatedContent);
         controller.showEditField = false;
         controller.getNotes();
       },
