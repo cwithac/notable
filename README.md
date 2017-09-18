@@ -25,4 +25,5 @@ DESCRIPTION
 + #
 
 ### Resources
-+ [#](#)
++ [Pixabay - Background](https://pixabay.com/en/backdrop-background-blank-board-72250/)
++ [Pixabay - Note](https://pixabay.com/en/note-post-it-reminder-sticky-note-147951/)
