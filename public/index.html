@@ -21,9 +21,9 @@
     <ul>
       <li ng-repeat="note in ctrl.notes">
         <div class="full-note">
+          <div class="push-pin"></div>
           <div class="note-content">
               {{note.content}}
-
 <!-- DELETE START-->
         <div ng-click="ctrl.deleteNote(note)"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
 <!-- DELETE END-->
@@ -34,6 +34,7 @@
             <input type="submit" value="update">
         </form>
 <!-- UPDATE END-->
+
           </div>
         </div>
       </li>

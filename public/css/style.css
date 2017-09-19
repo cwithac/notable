@@ -33,6 +33,17 @@ li {
 }
 
 .note-content{
-  padding: 10%;
+  padding: 0 10%;
   word-wrap: break-word;
+}
+
+.push-pin {
+  background-image: url(../images/push-pin.png);
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+  position: relative;
+  left: 175px;
+  top: 5px;
 }

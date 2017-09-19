@@ -27,3 +27,4 @@ DESCRIPTION
 ### Resources
 + [Pixabay - Background](https://pixabay.com/en/backdrop-background-blank-board-72250/)
 + [Pixabay - Note](https://pixabay.com/en/note-post-it-reminder-sticky-note-147951/)
++ [Pixabay - Pushpin](https://pixabay.com/en/pushpin-push-pin-office-pin-red-147918/)
