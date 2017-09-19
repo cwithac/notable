@@ -1,4 +1,4 @@
-angular.module('NotesApp').controller('MainController', ['$http', function($http){
+angular.module('NotesApp').controller('MainController', ['$http', '$scope', function($http, $scope){
 
 //Variable Assignment
   const controller = this;
@@ -27,8 +27,7 @@ angular.module('NotesApp').controller('MainController', ['$http', function($http
       method: 'GET',
       url: '/sessions/confirmLogin',
     }).then(function(response){
-      this.currentUser = response.data;
-      console.log('the current user is ' + this.currentUser.username);
+      $scope.currentUser = response.data;
     }, function(error) {
       console.log('error', error);
     });
@@ -47,18 +46,22 @@ angular.module('NotesApp').controller('MainController', ['$http', function($http
 
 //CREATE
   this.createNote = function() {
-    // $http({
-    //   method: 'POST',
-    //   url: '/notes',
-    //   data: {
-    //     content: this.formData.note
-    //   }
-    // }).then(function(response){
-    //   controller.formData = {};
-    //   controller.getNotes();
-    // }, function(error) {
-    //   console.log('error', error);
-    // });
+    this.findCurrentUser();
+    // console.log($scope.currentUser);
+    $http({
+      method: 'POST',
+      url: '/notes',
+      data: {
+          content: this.formData.note,
+          user: $scope.currentUser
+      }
+    }).then(function(response){
+      // console.log('note created by ' + response.data.user[0].display);
+      controller.formData = {};
+      controller.getNotes();
+    }, function(error) {
+      console.log('error', error);
+    });
   };
 
   this.registerUser = function() {
@@ -72,7 +75,6 @@ angular.module('NotesApp').controller('MainController', ['$http', function($http
       }
     }).then(function(response){
       controller.userData = {};
-      controller.getUsers();
     }, function(error) {
       console.log('error', error);
     });

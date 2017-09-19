@@ -4,8 +4,7 @@ const Notes = require('./notes.js');
 const userSchema = mongoose.Schema({
   username: String,
   password: String,
-  display: String,
-  notesTaken: []
+  display: String
 });
 
 const Users = mongoose.model('User', userSchema);
