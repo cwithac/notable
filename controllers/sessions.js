@@ -6,8 +6,16 @@ const bcrypt    = require('bcrypt');
 router.get('/', (req, res) => {
   User.find( {}, (err, foundUsers) => {
     res.json(foundUsers)
-    console.log(foundUsers);
+    // console.log(foundUsers);
   })
+});
+
+router.get('/confirmLogin', (req, res) => {
+  if(req.session.loggedin) {
+    User.findOne({username: req.session.username}, (error, user) => {
+      res.json(user);
+    });
+  };
 });
 
 router.post('/login', (req, res) => {
@@ -15,7 +23,7 @@ router.post('/login', (req, res) => {
       if(bcrypt.compareSync(req.body.password, user.password)){
         req.session.username = req.body.username;
         req.session.loggedin = true;
-        res.json(req.session.username + ' logged in status: ' + req.session.loggedin);
+        res.json(req.session.loggedin);
         }
     });
 });
@@ -42,7 +50,7 @@ router.get('/logout', (req, res) => {
       } else {
         req.session = false;
         console.log('logged out');
-        res.redirect('/');
+        res.json(req.session);
       }
   });
 });

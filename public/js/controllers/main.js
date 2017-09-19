@@ -6,7 +6,8 @@ angular.module('NotesApp').controller('MainController', ['$http', function($http
   this.userData = {};
   this.notes = [];
   this.showEditField = false;
-
+  this.currentUser = {};
+  this.loggedInUser = false;
 
 
 //READ
@@ -21,12 +22,13 @@ angular.module('NotesApp').controller('MainController', ['$http', function($http
     });
   };
 
-  this.getUsers = function() {
+  this.findCurrentUser = function() {
     $http({
       method: 'GET',
-      url: '/sessions',
+      url: '/sessions/confirmLogin',
     }).then(function(response){
-      controller.allUsers = response.data;
+      this.currentUser = response.data;
+      console.log('the current user is ' + this.currentUser.username);
     }, function(error) {
       console.log('error', error);
     });
@@ -45,7 +47,6 @@ angular.module('NotesApp').controller('MainController', ['$http', function($http
 
 //CREATE
   this.createNote = function() {
-    console.log(this.allUsers);
     // $http({
     //   method: 'POST',
     //   url: '/notes',
@@ -86,10 +87,9 @@ angular.module('NotesApp').controller('MainController', ['$http', function($http
         password: this.userData.password
       }
     }).then(function(response){
-      response.config.data.username = response.data;
-      console.log(response.data);
+      controller.loggedInUser = response.data;
       controller.userData = {};
-      controller.getUsers();
+      controller.findCurrentUser();
     }, function(error) {
       console.log('error', error);
     });
