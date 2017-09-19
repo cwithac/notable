@@ -56,7 +56,7 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
           user: $scope.currentUser
       }
     }).then(function(response){
-      // console.log('note created by ' + response.data.user[0].display);
+      console.log('note created by ' + response.data.user[0].display);
       controller.formData = {};
       controller.getNotes();
     }, function(error) {

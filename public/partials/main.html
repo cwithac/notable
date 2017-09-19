@@ -34,7 +34,7 @@
     <div class="full-note">
       <div class="push-pin"></div>
       <div class="note-content">
-          {{note.content}}
+          {{note.content}} <small>{{note.user[0].display}}</small>
 <!-- DELETE START-->
     <div ng-click="mainCtrl.deleteNote(note)"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
 <!-- DELETE END-->
