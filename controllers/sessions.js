@@ -11,22 +11,13 @@ router.get('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  User.findOne( {username: req.body.username}, (error, user) => {
-    console.log(user);
-    if(user) {
-      if(bcrypt.compareSync(req.body.password, user.password)) {
+  User.findOne({username: req.body.username}, (err, user) => {
+      if(bcrypt.compareSync(req.body.password, user.password)){
         req.session.username = req.body.username;
-        req.sesion.loggedin = true;
-        res.json(req.session.loggedin);
-        console.log(req.body.username);
-        console.log(req.body.display);
-        console.log(req.body.password);
-        console.log('logged in');
-      } else {
-        console.log('username or password are incorrect');
-      }
-    }
-  });
+        req.session.loggedin = true;
+        res.json(req.session.username + ' logged in status: ' + req.session.loggedin);
+        }
+    });
 });
 
 router.post('/register', (req, res) => {
@@ -39,7 +30,7 @@ router.post('/register', (req, res) => {
   User.create(userDatabase, (err, user) => {
     req.session.username = user.username;
     req.session.display = user.display;
-    req.session.logged   = true;
+    req.session.loggedin = true;
     res.json(user)
   });
 });
