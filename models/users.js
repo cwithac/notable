@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Notes = require('./notes.js');
 
 const userSchema = mongoose.Schema({
-  username: { type: String, unique: true },
+  username: String,
   password: String,
   display: String
 });
