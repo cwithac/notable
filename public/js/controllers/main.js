@@ -3,8 +3,10 @@ angular.module('NotesApp').controller('MainController', ['$http', function($http
 //Variable Assignment
   const controller = this;
   this.formData = {};
+  this.userData = {};
   this.notes = [];
   this.showEditField = false;
+
 
 
 //READ
@@ -13,8 +15,29 @@ angular.module('NotesApp').controller('MainController', ['$http', function($http
       method: 'GET',
       url: '/notes',
     }).then(function(response){
-      // console.log('response.data', response.data);
       controller.notes = response.data;
+    }, function(error) {
+      console.log('error', error);
+    });
+  };
+
+  this.getUsers = function() {
+    $http({
+      method: 'GET',
+      url: '/sessions',
+    }).then(function(response){
+      controller.allUsers = response.data;
+    }, function(error) {
+      console.log('error', error);
+    });
+  };
+
+  this.logoutUser = function() {
+    $http({
+      method: 'GET',
+      url: '/sessions/logout',
+    }).then(function(response){
+      console.log('log out');
     }, function(error) {
       console.log('error', error);
     });
@@ -22,15 +45,51 @@ angular.module('NotesApp').controller('MainController', ['$http', function($http
 
 //CREATE
   this.createNote = function() {
+    console.log(this.allUsers);
+    // $http({
+    //   method: 'POST',
+    //   url: '/notes',
+    //   data: {
+    //     content: this.formData.note
+    //   }
+    // }).then(function(response){
+    //   controller.formData = {};
+    //   controller.getNotes();
+    // }, function(error) {
+    //   console.log('error', error);
+    // });
+  };
+
+  this.registerUser = function() {
     $http({
       method: 'POST',
-      url: '/notes',
+      url: '/sessions/register',
       data: {
-        content: this.formData.note
+        username: this.userData.username,
+        password: this.userData.password,
+        display: this.userData.display
       }
     }).then(function(response){
-      controller.formData = {};
-      controller.getNotes();
+      controller.userData = {};
+      controller.getUsers();
+    }, function(error) {
+      console.log('error', error);
+    });
+  };
+
+  this.loginUser = function() {
+    $http({
+      method: 'POST',
+      url: '/sessions/login',
+      data: {
+        username: this.userData.username,
+        password: this.userData.password
+      }
+    }).then(function(response){
+      response.config.data.username = response.data;
+      console.log(response.data);
+      controller.userData = {};
+      controller.getUsers();
     }, function(error) {
       console.log('error', error);
     });
