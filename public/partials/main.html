@@ -1,0 +1,31 @@
+<!-- <div ng-controller="MainController as mainCtrl"> -->
+<!-- CREATE START-->
+<form ng-submit="mainCtrl.createNote()">
+  <input type="text" ng-model="mainCtrl.formData.note" placeholder="note"/>
+  <input type="submit" value="add">
+</form>
+<!-- CREATE END-->
+<!-- READ START-->
+<ul>
+  <li ng-repeat="note in mainCtrl.notes">
+    <div class="full-note">
+      <div class="push-pin"></div>
+      <div class="note-content">
+          {{note.content}}
+<!-- DELETE START-->
+    <div ng-click="mainCtrl.deleteNote(note)"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+<!-- DELETE END-->
+<!-- UPDATE START-->
+    <div ng-click="mainCtrl.editIndexToggle = $index;  mainCtrl.showEditFieldForm()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
+    <form ng-if="$index === mainCtrl.editIndexToggle && mainCtrl.showEditField" ng-submit="mainCtrl.updateNote(note)">
+        <input type="text" ng-model="note.content" />
+        <input type="submit" value="update">
+    </form>
+<!-- UPDATE END-->
+
+      </div>
+    </div>
+  </li>
+</ul>
+<!-- READ END-->
+<!-- </div> -->
