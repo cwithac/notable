@@ -1,0 +1,22 @@
+<!-- REGISTER START-->
+<form ng-submit="mainCtrl.registerUser()">
+  <input type="text" ng-model="mainCtrl.userData.username" placeholder="username"/>
+  <input type="text" ng-model="mainCtrl.userData.password" placeholder="password"/>
+  <input type="text" ng-model="mainCtrl.userData.display" placeholder="display"/>
+  <input type="submit" value="register">
+</form>
+<!-- REGISTER END-->
+
+<!-- LOGIN START-->
+<form ng-submit="mainCtrl.loginUser()">
+  <input type="text" ng-model="mainCtrl.userData.username" placeholder="username"/>
+  <input type="text" ng-model="mainCtrl.userData.password" placeholder="password"/>
+  <input type="submit" value="login">
+</form>
+<!-- LOGIN END-->
+
+<!-- LOGIN START-->
+<button ng-click="mainCtrl.logoutUser()">
+  Logout
+</button>
+<!-- LOGIN END-->
