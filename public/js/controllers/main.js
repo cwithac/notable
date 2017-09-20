@@ -74,6 +74,7 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
         display: this.userData.display
       }
     }).then(function(response){
+      controller.loginUser();
       controller.userData = {};
     }, function(error) {
       console.log('error', error);
