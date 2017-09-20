@@ -11,17 +11,32 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
   this.loggedInUser = false;
   this.showRegister = false;
   this.showLogin = false;
+  this.displayNote = false;
 
 //READ
   this.getNotes = function() {
-    $http({
-      method: 'GET',
-      url: '/notes',
-    }).then(function(response){
-      controller.notes = response.data;
-    }, function(error) {
-      console.log('error', error);
-    });
+    console.log($scope.currentUser);
+    if($scope.currentUser == undefined){
+      console.log('$scope.currentUser is undefined');
+    } else {
+      $http({
+        method: 'GET',
+        url: '/notes',
+      }).then(function(response){
+        controller.notes = response.data;
+        // console.log($scope.currentUser._id);
+        for (let i = 0; i < controller.notes.length; i++) {
+          if($scope.currentUser._id == controller.notes[i].user[0]._id){
+            console.log(controller.notes[i].user[0]._id);
+            controller.notes[i].displayNote = true;
+            console.log(controller.notes[i].displayNote);
+          }
+        }
+        console.log(controller.notes);
+      }, function(error) {
+        console.log('error', error);
+      });
+    }
   };
 
   this.findCurrentUser = function() {

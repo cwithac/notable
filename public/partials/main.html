@@ -7,7 +7,7 @@
 <!-- READ START-->
 <ul>
   <li ng-repeat="note in mainCtrl.notes">
-    <div class="full-note">
+    <div ng-if="note.displayNote" class="full-note">
       <div class="push-pin"></div>
       <div class="note-content">
           {{note.content}} <small>{{note.user[0].display}}</small>
