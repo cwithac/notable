@@ -3,12 +3,14 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
 //Variable Assignment
   const controller = this;
   this.formData = {};
-  this.userData = {};
   this.notes = [];
   this.showEditField = false;
+
+  this.userData = {};
   this.currentUser = {};
   this.loggedInUser = false;
-
+  this.showRegister = false;
+  this.showLogin = false;
 
 //READ
   this.getNotes = function() {
@@ -141,6 +143,16 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
 this.showEditFieldForm = function() {
     this.showEditField = true;
   }
+
+this.showRegistrationFormOnly = function() {
+  this.showRegister = true;
+  this.showLogin = false;
+}
+
+this.showLoginFormOnly = function() {
+  this.showRegister = false;
+  this.showLogin = true;
+}
 
 //Page Load Calls
 this.getNotes();
