@@ -1,5 +1,5 @@
 <!-- REGISTER START-->
-<form ng-submit="mainCtrl.registerUser()">
+<form ng-if="!mainCtrl.loggedInUser" ng-submit="mainCtrl.registerUser()">
   <input type="text" ng-model="mainCtrl.userData.username" placeholder="username"/>
   <input type="text" ng-model="mainCtrl.userData.password" placeholder="password"/>
   <input type="text" ng-model="mainCtrl.userData.display" placeholder="display"/>
@@ -8,7 +8,7 @@
 <!-- REGISTER END-->
 
 <!-- LOGIN START-->
-<form ng-submit="mainCtrl.loginUser()">
+<form ng-if="!mainCtrl.loggedInUser" ng-submit="mainCtrl.loginUser()">
   <input type="text" ng-model="mainCtrl.userData.username" placeholder="username"/>
   <input type="text" ng-model="mainCtrl.userData.password" placeholder="password"/>
   <input type="submit" value="login">
@@ -16,7 +16,7 @@
 <!-- LOGIN END-->
 
 <!-- LOGIN START-->
-<button ng-click="mainCtrl.logoutUser()">
+<button ng-if="mainCtrl.loggedInUser" ng-click="mainCtrl.logoutUser()">
   Logout
 </button>
 <!-- LOGIN END-->

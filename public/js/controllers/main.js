@@ -28,6 +28,8 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
       url: '/sessions/confirmLogin',
     }).then(function(response){
       $scope.currentUser = response.data;
+      controller.loggedInUser = true;
+      console.log(controller.loggedInUser);
     }, function(error) {
       console.log('error', error);
     });
@@ -39,6 +41,7 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
       url: '/sessions/logout',
     }).then(function(response){
       console.log('log out');
+      controller.loggedInUser = false;
     }, function(error) {
       console.log('error', error);
     });
@@ -76,6 +79,7 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
     }).then(function(response){
       controller.loginUser();
       controller.userData = {};
+      console.log(controller.loggedInUser);
     }, function(error) {
       console.log('error', error);
     });
@@ -92,6 +96,7 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
     }).then(function(response){
       controller.loggedInUser = response.data;
       controller.userData = {};
+      console.log(controller.loggedInUser);
       controller.findCurrentUser();
     }, function(error) {
       console.log('error', error);
