@@ -1,14 +1,19 @@
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+@import url('https://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here');
 
-/** {
-  border: 1px solid red;
-}*/
+* {
+  margin: 0;
+  padding: 0;
+  color: #111111;
+}
 
 body {
     background-image: url('../images/background-cork.jpg');
     background-repeat: repeat;
     background-attachment: fixed;
     background-position: center;
+    font-family: 'Just Me Again Down Here', cursive;
+    font-size: 2em;
 }
 
 ul {
@@ -47,4 +52,76 @@ li {
   position: relative;
   left: 175px;
   top: 5px;
+}
+
+.register-login-button {
+  text-decoration: none;
+  padding-bottom: 2px;
+  transition: 0.3s ease-in;
+  -moz-transition: 0.3s ease-in;
+  -webkit-transition: 0.3s ease-in;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.register-login-button:after {
+  content:'';
+  display: block;
+  height: 3px;
+  width: 0;
+  background: transparent;
+  transition: 0.3s ease-in;
+  -moz-transition: 0.3s ease-in;
+  -webkit-transition: 0.3s ease-in;
+}
+
+.register-login-button:hover {
+  cursor: pointer;
+  text-decoration: none;
+  padding-bottom: 2px;
+  transition: 0.3s ease-in;
+  -moz-transition: 0.3s ease-in;
+  -webkit-transition: 0.3s ease-in;
+}
+
+.register-login-button:hover:after {
+  width: 100%;
+  background: #111111;
+  transition: 0.3s ease-in;
+  -moz-transition: 0.3s ease-in;
+  -webkit-transition: 0.3s ease-in;
+}
+
+#landing-page {
+  background-image: url('../images/yellow-note.png');
+  background-size: 500px 500px;
+  height: 500px;
+  width: 500px;
+  margin: 20vh auto;
+}
+
+#landing-page div {
+  margin-top: 10%;
+  text-align: center;
+  padding: 1%;
+}
+
+input {
+  padding: 5px 10px;
+  font-family: 'Just Me Again Down Here', cursive;
+  font-size: .6em;
+}
+
+input[type="submit"] {
+  background-color: white;
+}
+
+/*RESPONSIVE*/
+
+@media (max-width: 500px) {
+  #landing-page {
+    background-size: 300px 300px;
+    height: 300px;
+    width: 300px;
+  }
 }
