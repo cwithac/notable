@@ -3,12 +3,13 @@ const router    = express.Router();
 const User      = require('../models/users.js');
 const bcrypt    = require('bcrypt');
 
-router.get('/', (req, res) => {
-  User.find( {}, (err, foundUsers) => {
-    res.json(foundUsers)
-    // console.log(foundUsers);
-  })
-});
+//JSON Data for all users
+// router.get('/', (req, res) => {
+//   User.find( {}, (err, foundUsers) => {
+//     res.json(foundUsers)
+//     // console.log(foundUsers);
+//   })
+// });
 
 router.get('/confirmLogin', (req, res) => {
   if(req.session.loggedin) {
