@@ -6,7 +6,7 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
   this.notes = [];
   this.registerUserData = {};
   this.loginUserData = {};
-  $scope.currentUser = {};
+  this.currentUser = {};
   this.userNotifcation = '';
 
   this.loggedInUser = false;
@@ -29,12 +29,12 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
         url: '/notes',
       }).then(function(response){
         controller.notes = response.data;
-        // console.log($scope.currentUser._id);
+        console.log($scope.currentUser._id);
         for (let i = 0; i < controller.notes.length; i++) {
           if($scope.currentUser._id == controller.notes[i].user[0]._id){
-            // console.log(controller.notes[i].user[0]._id);
+            console.log(controller.notes[i].user[0]._id);
             controller.notes[i].displayNote = true;
-            // console.log(controller.notes[i].displayNote);
+            console.log(controller.notes[i].displayNote);
           }
         }
         console.log('all notes for this user', controller.notes);
@@ -192,6 +192,6 @@ this.openRegisterAndLogin = function() {
 }
 
 //Page Load Calls
-// this.getNotes();
+this.getNotes();
 
 }]); //end of MainController
