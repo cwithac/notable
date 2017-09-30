@@ -19,7 +19,7 @@ DESCRIPTION
 ```
 
 ### Upcoming Features
-+ #
++ Error Handling - Register & Login / Status Codes
 
 ### Known Issues
 + #
