@@ -12,6 +12,8 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
   this.loggedInUser = false;
   this.showRegister = false;
   this.showLogin = false;
+  this.showRegisterForm = true;
+  this.showLoginForm = true;
   this.welcomeMessage = false;
   this.displayNote = false;
   this.showEditField = false;
@@ -63,6 +65,7 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
       console.log('log out');
       controller.loggedInUser = false;
       controller.welcomeMessage = false;
+      controller.openRegisterAndLogin();
     }, function(error) {
       console.log('error', error);
     });
@@ -104,6 +107,7 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
       }
       controller.loginUser();
       controller.registerUserData = {};
+      controller.closeRegisterAndLogin();
     }, function(error) {
       console.log('error', error);
     });
@@ -122,6 +126,7 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
       controller.loginUserData = {};
       controller.findCurrentUser();
       controller.welcomeMessage = true;
+      controller.closeRegisterAndLogin();
     }, function(error) {
       console.log('error', error);
     });
@@ -174,6 +179,16 @@ this.showRegistrationFormOnly = function() {
 this.showLoginFormOnly = function() {
   this.showRegister = false;
   this.showLogin = true;
+}
+
+this.closeRegisterAndLogin = function() {
+  this.showRegisterForm = false;
+  this.showLoginForm = false;
+}
+
+this.openRegisterAndLogin = function() {
+  this.showRegisterForm = true;
+  this.showLoginForm = true;
 }
 
 //Page Load Calls
