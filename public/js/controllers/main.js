@@ -6,8 +6,11 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
   this.notes = [];
   this.showEditField = false;
 
-  this.userData = {};
-  this.currentUser = {};
+  this.registerUserData = {};
+  this.loginUserData = {};
+  $scope.currentUser = {};
+  this.displayName = '';
+
   this.loggedInUser = false;
   this.showRegister = false;
   this.showLogin = false;
@@ -15,7 +18,7 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
 
 //READ
   this.getNotes = function() {
-    console.log($scope.currentUser);
+    console.log('current user', $scope.currentUser);
     if($scope.currentUser == undefined){
       console.log('$scope.currentUser is undefined');
     } else {
@@ -27,12 +30,12 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
         // console.log($scope.currentUser._id);
         for (let i = 0; i < controller.notes.length; i++) {
           if($scope.currentUser._id == controller.notes[i].user[0]._id){
-            console.log(controller.notes[i].user[0]._id);
+            // console.log(controller.notes[i].user[0]._id);
             controller.notes[i].displayNote = true;
-            console.log(controller.notes[i].displayNote);
+            // console.log(controller.notes[i].displayNote);
           }
         }
-        console.log(controller.notes);
+        console.log('all notes for this user', controller.notes);
       }, function(error) {
         console.log('error', error);
       });
@@ -46,7 +49,8 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
     }).then(function(response){
       $scope.currentUser = response.data;
       controller.loggedInUser = true;
-      console.log(controller.loggedInUser);
+      console.log('User is logged in: ', controller.loggedInUser);
+      controller.displayName = response.data.display
     }, function(error) {
       console.log('error', error);
     });
@@ -76,7 +80,7 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
           user: $scope.currentUser
       }
     }).then(function(response){
-      console.log('note created by ' + response.data.user[0].display);
+      // console.log('note created by ' + response.data.user[0].display);
       controller.formData = {};
       controller.getNotes();
     }, function(error) {
@@ -89,14 +93,17 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
       method: 'POST',
       url: '/sessions/register',
       data: {
-        username: this.userData.username,
-        password: this.userData.password,
-        display: this.userData.display
+        username: this.registerUserData.username,
+        password: this.registerUserData.password,
+        display: this.registerUserData.display
       }
     }).then(function(response){
+      controller.loginUserData = {
+        username: controller.registerUserData.username,
+        password: controller.registerUserData.password
+      }
       controller.loginUser();
-      controller.userData = {};
-      console.log(controller.loggedInUser);
+      controller.registerUserData = {};
     }, function(error) {
       console.log('error', error);
     });
@@ -107,13 +114,12 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
       method: 'POST',
       url: '/sessions/login',
       data: {
-        username: this.userData.username,
-        password: this.userData.password
+        username: this.loginUserData.username,
+        password: this.loginUserData.password
       }
     }).then(function(response){
       controller.loggedInUser = response.data;
-      controller.userData = {};
-      console.log(controller.loggedInUser);
+      controller.loginUserData = {};
       controller.findCurrentUser();
     }, function(error) {
       console.log('error', error);
@@ -170,6 +176,6 @@ this.showLoginFormOnly = function() {
 }
 
 //Page Load Calls
-this.getNotes();
+// this.getNotes();
 
 }]); //end of MainController
