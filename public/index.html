@@ -15,6 +15,7 @@
   </head>
 
   <body>
+    <div ng-if="!mainCtrl.loggedInUser" id="title">Take Note</div>
     <user></user>
     <main ng-if="mainCtrl.loggedInUser"></main>
   </body>
