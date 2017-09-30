@@ -4,16 +4,17 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
   const controller = this;
   this.formData = {};
   this.notes = [];
-  this.showEditField = false;
-
   this.registerUserData = {};
   this.loginUserData = {};
   $scope.currentUser = {};
+  this.userNotifcation = '';
 
   this.loggedInUser = false;
   this.showRegister = false;
   this.showLogin = false;
+  this.welcomeMessage = false;
   this.displayNote = false;
+  this.showEditField = false;
 
 //READ
   this.getNotes = function() {
@@ -61,6 +62,7 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
     }).then(function(response){
       console.log('log out');
       controller.loggedInUser = false;
+      controller.welcomeMessage = false;
     }, function(error) {
       console.log('error', error);
     });
@@ -119,6 +121,7 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
       controller.loggedInUser = response.data;
       controller.loginUserData = {};
       controller.findCurrentUser();
+      controller.welcomeMessage = true;
     }, function(error) {
       console.log('error', error);
     });

@@ -22,4 +22,4 @@
   Logout
 </button>
 <!-- LOGIN END-->
-<div>Welcome {{currentUser.display}}!</div>
+<div ng-if="mainCtrl.welcomeMessage">Welcome {{currentUser.display}}!</div>
