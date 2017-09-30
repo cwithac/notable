@@ -9,7 +9,6 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
   this.registerUserData = {};
   this.loginUserData = {};
   $scope.currentUser = {};
-  this.displayName = '';
 
   this.loggedInUser = false;
   this.showRegister = false;
@@ -50,7 +49,6 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
       $scope.currentUser = response.data;
       controller.loggedInUser = true;
       console.log('User is logged in: ', controller.loggedInUser);
-      controller.displayName = response.data.display
     }, function(error) {
       console.log('error', error);
     });
