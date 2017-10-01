@@ -125,7 +125,7 @@ nav {
 nav div, .logout {
   font-size: .5em;
   color: #FFFFFF;
-  padding-right: 2%;
+  padding-right: 4%;
   padding-top: 1%;
 }
 
@@ -156,6 +156,25 @@ main {
   padding: 1%;
 }
 
+#create {
+  margin: 5px 0 10px auto;
+}
+
+#add-note {
+  height: 100px;
+  width: 500px;
+  border: 5px solid black;
+  padding: 5px;
+  box-shadow: 5px 5px 5px #111AAA;
+  font-size: .5em;
+}
+
+#create input[type="submit"] {
+  width: 200px;
+  margin-left: 5px;
+  font-size: .5em;
+}
+
 input {
   padding: 5px 10px;
   font-family: 'Pangolin', cursive;
@@ -165,14 +184,37 @@ input {
 
 input[type="submit"] {
   background-color: white;
+  width: 250px;
 }
 
 /*RESPONSIVE*/
+
+@media (max-width: 550px) {
+  #add-note {
+    height: 150px;
+    width: 300px;
+  }
+}
 
 @media (max-width: 500px) {
   #landing-page {
     background-size: 300px 300px;
     height: 300px;
     width: 300px;
+  }
+  #landing-page div {
+    margin-top: 5%;
+    padding: .1%;
+  }
+  input {
+    padding: 2px 5px;
+    font-family: 'Pangolin', cursive;
+    font-size: .5em;
+  }
+  input[type="submit"] {
+    font-size: .5em;
+  }
+  .register-login-button {
+    font-size: .5em;
   }
 }

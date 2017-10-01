@@ -1,8 +1,10 @@
 <!-- CREATE START-->
-<form ng-submit="mainCtrl.createNote()">
-  <input type="textbox" ng-model="mainCtrl.formData.note" placeholder="note"/>
-  <input type="submit" value="add">
-</form>
+<section id="create">
+  <form ng-submit="mainCtrl.createNote()">
+    <input id="add-note" type="text" ng-model="mainCtrl.formData.note" placeholder="Just a quick note..."/>
+    <input type="submit" value="Pin Note To Board">
+  </form>
+</section>
 <!-- CREATE END-->
 <!-- READ START-->
 <ul>
