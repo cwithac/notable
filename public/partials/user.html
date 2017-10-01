@@ -4,9 +4,9 @@
   <div ng-if="mainCtrl.showRegisterForm">
     <div class="register-login-button" ng-click="mainCtrl.showRegistrationFormOnly()" >Register</div>
     <form ng-if="!mainCtrl.loggedInUser; mainCtrl.showRegister" ng-submit="mainCtrl.registerUser()">
-      <input type="text" ng-model="mainCtrl.registerUserData.username" placeholder="username"/>
-      <input type="text" ng-model="mainCtrl.registerUserData.password" placeholder="password"/><br/>
-      <input type="text" ng-model="mainCtrl.registerUserData.display" placeholder="display name"/><br/>
+      <input type="text" ng-model="mainCtrl.registerUserData.username" placeholder="username" required/>
+      <input type="text" ng-model="mainCtrl.registerUserData.password" placeholder="password" required/><br/>
+      <input type="text" ng-model="mainCtrl.registerUserData.display" placeholder="display name" required/><br/>
       <input type="submit" value="Complete Registration">
     </form>
   </div>
@@ -16,8 +16,8 @@
   <div ng-if="mainCtrl.showLoginForm">
     <div class="register-login-button" ng-click="mainCtrl.showLoginFormOnly()" >Login</div>
     <form ng-if="!mainCtrl.loggedInUser; mainCtrl.showLogin" ng-submit="mainCtrl.loginUser()">
-      <input type="text" ng-model="mainCtrl.loginUserData.username" placeholder="username"/>
-      <input type="text" ng-model="mainCtrl.loginUserData.password" placeholder="password"/><br/>
+      <input type="text" ng-model="mainCtrl.loginUserData.username" placeholder="username" required/>
+      <input type="text" ng-model="mainCtrl.loginUserData.password" placeholder="password" required/><br/>
       <input type="submit" value="Log In">
     </form>
   </div>
