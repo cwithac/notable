@@ -13,16 +13,18 @@
       <div class="push-pin"></div>
       <div class="note-content">
           {{note.content}}</br>
-<!-- DELETE START-->
-    <div ng-click="mainCtrl.deleteNote(note)"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-<!-- DELETE END-->
-<!-- UPDATE START-->
-    <div ng-click="mainCtrl.editIndexToggle = $index;  mainCtrl.showEditFieldForm()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
-    <form ng-if="$index === mainCtrl.editIndexToggle && mainCtrl.showEditField" ng-submit="mainCtrl.updateNote(note)">
-        <input type="text" ng-model="note.content" />
-        <input type="submit" value="update">
-    </form>
-<!-- UPDATE END-->
+          <div id="icons">
+            <!-- DELETE START-->
+                <div ng-click="mainCtrl.deleteNote(note)"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+            <!-- DELETE END-->
+            <!-- UPDATE START-->
+                <div ng-click="mainCtrl.editIndexToggle = $index;  mainCtrl.showEditFieldForm()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div><br/>
+                <form ng-if="$index === mainCtrl.editIndexToggle && mainCtrl.showEditField" ng-submit="mainCtrl.updateNote(note)">
+                    <input type="text" ng-model="note.content" />
+                    <input type="submit" value="Submit">
+                </form>
+            <!-- UPDATE END-->
+          </div>
       </div>
     </div>
   </li>
