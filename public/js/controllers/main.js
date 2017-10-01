@@ -66,6 +66,8 @@ angular.module('NotesApp').controller('MainController', ['$http', '$scope', func
       controller.loggedInUser = false;
       controller.welcomeMessage = false;
       controller.openRegisterAndLogin();
+      controller.showLogin = false;
+      controller.showRegister = false;
     }, function(error) {
       console.log('error', error);
     });

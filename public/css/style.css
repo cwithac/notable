@@ -65,7 +65,6 @@ li {
 }
 
 .register-login-button {
-  text-decoration: none;
   padding-bottom: 2px;
   transition: 0.3s ease-in;
   -moz-transition: 0.3s ease-in;
@@ -87,7 +86,6 @@ li {
 
 .register-login-button:hover {
   cursor: pointer;
-  text-decoration: none;
   padding-bottom: 2px;
   transition: 0.3s ease-in;
   -moz-transition: 0.3s ease-in;
@@ -113,6 +111,48 @@ li {
 #landing-page div {
   margin-top: 10%;
   text-align: center;
+  padding: 1%;
+}
+
+
+nav {
+  background-color: #111111;
+  height: 30px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+nav div, .logout {
+  font-size: .5em;
+  color: #FFFFFF;
+  padding-right: 2%;
+}
+
+.logout:hover {
+  cursor: pointer;
+}
+
+.logout:after {
+  content:'';
+  display: block;
+  height: 3px;
+  width: 0;
+  background: transparent;
+  transition: 0.3s ease-in;
+  -moz-transition: 0.3s ease-in;
+  -webkit-transition: 0.3s ease-in;
+}
+
+.logout:hover:after {
+  width: 100%;
+  background: #FFFFFF;
+  transition: 0.3s ease-in;
+  -moz-transition: 0.3s ease-in;
+  -webkit-transition: 0.3s ease-in;
+}
+
+main {
+  margin-top: 10%;
   padding: 1%;
 }
 

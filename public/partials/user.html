@@ -25,11 +25,11 @@
 </section>
 
 <!-- NAVIGATION -->
-<nav>
+<nav ng-if="mainCtrl.loggedInUser">
   <!-- LOGOUT START-->
-  <button ng-if="mainCtrl.loggedInUser" ng-click="mainCtrl.logoutUser()">
+  <div class="logout" ng-if="mainCtrl.loggedInUser" ng-click="mainCtrl.logoutUser()">
     Logout
-  </button>
+  </div>
   <!-- LOGOUT END-->
   <div ng-if="mainCtrl.welcomeMessage">Welcome {{currentUser.display}}!</div>
 </nav>
