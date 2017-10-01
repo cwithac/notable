@@ -1,5 +1,5 @@
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
-@import url('https://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here');
+@import url('https://fonts.googleapis.com/css?family=Pangolin');
 
 /*YELLOW: rgb(243,230,121);*/
 
@@ -14,7 +14,7 @@ body {
     background-repeat: repeat;
     background-attachment: fixed;
     background-position: center;
-    font-family: 'Just Me Again Down Here', cursive;
+    font-family: 'Pangolin', cursive;
     font-size: 2em;
 }
 
@@ -117,7 +117,7 @@ li {
 
 nav {
   background-color: #111111;
-  height: 30px;
+  height: 35px;
   display: flex;
   flex-direction: row-reverse;
 }
@@ -126,6 +126,7 @@ nav div, .logout {
   font-size: .5em;
   color: #FFFFFF;
   padding-right: 2%;
+  padding-top: 1%;
 }
 
 .logout:hover {
@@ -152,14 +153,14 @@ nav div, .logout {
 }
 
 main {
-  margin-top: 10%;
   padding: 1%;
 }
 
 input {
   padding: 5px 10px;
-  font-family: 'Just Me Again Down Here', cursive;
+  font-family: 'Pangolin', cursive;
   font-size: .6em;
+  width: 75%;
 }
 
 input[type="submit"] {
