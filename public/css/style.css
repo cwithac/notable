@@ -51,7 +51,11 @@ li {
 .note-content{
   padding: 0 10%;
   word-wrap: break-word;
-  font-size: 1em;
+  font-size: .5em;
+}
+
+.note-content div {
+  display: flex;
 }
 
 .push-pin {
@@ -174,7 +178,7 @@ main {
   width: 200px;
   margin-left: 5px;
   font-size: .5em;
-  font-family: 'FontAwesome';
+  font-family: 'Pangolin', cursive;
 }
 
 input {
