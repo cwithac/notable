@@ -2,7 +2,7 @@
 <section id="create">
   <form ng-submit="mainCtrl.createNote()">
     <input id="add-note" type="text" ng-model="mainCtrl.formData.note" placeholder="Just a quick note..."/>
-    <input type="submit" value="Pin Note To Board">
+    <input type="submit" value="&#xf08d Note to Board">
   </form>
 </section>
 <!-- CREATE END-->
@@ -12,7 +12,7 @@
     <div class="full-note">
       <div class="push-pin"></div>
       <div class="note-content">
-          {{note.content}} <small>{{note.user[0].display}}</small>
+          {{note.content}}
 <!-- DELETE START-->
     <div ng-click="mainCtrl.deleteNote(note)"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
 <!-- DELETE END-->

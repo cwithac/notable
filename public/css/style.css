@@ -51,6 +51,7 @@ li {
 .note-content{
   padding: 0 10%;
   word-wrap: break-word;
+  font-size: 1em;
 }
 
 .push-pin {
@@ -173,6 +174,7 @@ main {
   width: 200px;
   margin-left: 5px;
   font-size: .5em;
+  font-family: 'FontAwesome';
 }
 
 input {
@@ -186,6 +188,7 @@ input[type="submit"] {
   background-color: white;
   width: 250px;
 }
+
 
 /*RESPONSIVE*/
 
