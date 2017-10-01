@@ -2,11 +2,11 @@
 
 #### [LIVE SITE](https://notablenote.herokuapp.com/)
 
-DESCRIPTION
+Virtual cork board for a quick post-it note.  Log in to view your private board, create, update and delete old notes.
 
-**Guest Sign In**:  username: ### | password: ###
+**Guest Sign In**:  username: guest | password: guest
 
-![](#)
+![](https://i.imgur.com/cDDmK0U.png)
 
 ### Technologies Used
 
@@ -20,9 +20,9 @@ DESCRIPTION
 
 ### Upcoming Features
 + Error Handling - Register & Login / Status Codes
++ User Requirements
++ Note length flexibility
 
-### Known Issues
-+ #
 
 ### Resources
 + [Pixabay - Background](https://pixabay.com/en/backdrop-background-blank-board-72250/)
