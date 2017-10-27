@@ -170,9 +170,9 @@ main {
 #add-note {
   height: 100px;
   width: 500px;
-  border: 5px solid black;
+  border: 5px solid #111111;
   padding: 5px;
-  box-shadow: 5px 5px 5px #111AAA;
+  box-shadow: 5px 5px 5px #111111;
   font-size: .5em;
 }
 
@@ -192,7 +192,7 @@ input {
 }
 
 input[type="submit"] {
-  background-color: white;
+  background-color: #FFFFFF;
   width: 250px;
 }
 
