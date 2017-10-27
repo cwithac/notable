@@ -6,7 +6,7 @@ Virtual cork board for a quick post-it note.  Log in to view your private board,
 
 **Guest Sign In**:  username: guest | password: guest
 
-![](https://i.imgur.com/cDDmK0U.png)
+![](https://i.imgur.com/lWnHzLV.png)
 
 ### Technologies Used
 
